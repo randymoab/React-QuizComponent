@@ -10,7 +10,7 @@ class Quiz extends Component {
         this.state = { quiz_position: 1 }
     }
     render(){
-        const isQuizEnd = () => ((this.state.quiz_position-1) === quizData.quiz_questions.length) ? 'True' : 'False'
+        const isQuizEnd = false//() => ((this.state.quiz_position-1) === quizData.quiz_questions.length) ? 'True' : 'false'
         if (isQuizEnd) {
             return (
                 <div>
