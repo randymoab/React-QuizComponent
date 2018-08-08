@@ -14,41 +14,22 @@ class Quiz extends Component {
             return { quiz_position: state.quiz_position + 1 }
         })
     }
+    handleResetClick() {
+        this.setState((state) => {
+            return { quiz_position: 1 }
+        })
+    }
     render(){
         const isQuizEnd = ((this.state.quiz_position - 1) === quizData.quiz_questions.length)
         //var isQuizEnd2 = null
         //if ((this.state.quiz_position-1) === quizData.quiz_questions.length) {isQuizEnd2 = true} else {isQuizEnd2 = false}
         return (
             <div>
-                {isQuizEnd ? <QuizEnd /> :
+                {isQuizEnd ? <QuizEnd resetClickHandler={this.handleResetClick.bind(this)} /> :
                   <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]} showNextQuestionHandler={this.showNextQuestion.bind(this)} />
                 }
             </div>
-            
-            // <div>
-            // { isQuizEnd 
-            //     ?   <div>
-            //             <QuizEnd show={isQuizEnd === 'true'} />
-            //         </div>
-            //     :   <div>
-            //             <QuizQuestion show={isQuizEnd === 'false'} quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
-            //         </div>
-            // }
-            // </div>
         )
-        // if (isQuizEnd === true) {
-        //     return (
-        //         <div>
-        //             <QuizEnd />
-        //         </div>
-        //     )
-        // } else {
-        //     return (
-        //         <div>
-        //             <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
-        //         </div>
-        //     )
-        // }
     }
 }
 
