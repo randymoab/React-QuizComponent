@@ -14,14 +14,23 @@ class Quiz extends Component {
         return (
             <div>
             { isQuizEnd 
-                ?   <div>
-                        <QuizEnd show={isQuizEnd === 'true'} />
-                    </div>
-                :   <div>
-                        <QuizQuestion show={isQuizEnd === 'false'} quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
-                    </div>
+                ?   
+                    <QuizEnd />
+                :   
+                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]} />
             }
             </div>
+            
+            // <div>
+            // { isQuizEnd 
+            //     ?   <div>
+            //             <QuizEnd show={isQuizEnd === 'true'} />
+            //         </div>
+            //     :   <div>
+            //             <QuizQuestion show={isQuizEnd === 'false'} quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
+            //         </div>
+            // }
+            // </div>
         )
         // if (isQuizEnd === true) {
         //     return (
