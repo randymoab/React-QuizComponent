@@ -10,20 +10,32 @@ class Quiz extends Component {
         this.state = { quiz_position: 1 }
     }
     render(){
-        const isQuizEnd = (() => {if ((this.state.quiz_position-1) === quizData.quiz_questions.length) {return true} else {return false}})
-        if (isQuizEnd === true) {
-            return (
-                <div>
-                    <QuizEnd />
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
-                </div>
-            )
-        }
+        const isQuizEnd = false//(() => {if ((this.state.quiz_position-1) === quizData.quiz_questions.length) {return true} else {return false}})
+        return (
+            <div>
+            { isQuizEnd 
+                ?   <div>
+                        <QuizEnd show={isQuizEnd === 'true'} />
+                    </div>
+                :   <div>
+                        <QuizQuestion show={isQuizEnd === 'false'} quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
+                    </div>
+            }
+            </div>
+        )
+        // if (isQuizEnd === true) {
+        //     return (
+        //         <div>
+        //             <QuizEnd />
+        //         </div>
+        //     )
+        // } else {
+        //     return (
+        //         <div>
+        //             <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}/>
+        //         </div>
+        //     )
+        // }
     }
 }
 
